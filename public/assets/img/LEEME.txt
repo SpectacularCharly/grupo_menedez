@@ -1,0 +1,6 @@
+Coloca aquí tus imágenes (los nombres ya están referenciados en el código):
+  hero-inicio.jpg        Excavadora al atardecer (portada de Inicio)
+  hero-conocenos.jpg     Grúas de construcción (portada de Conócenos)
+  hero-servicios.jpg     Imagen de portada de Servicios
+  conocenos-lateral.jpg  Foto lateral de Conócenos
+Si faltan, la página muestra un fondo gris azulado en su lugar.

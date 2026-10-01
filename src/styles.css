@@ -1,0 +1,41 @@
+:root {
+  --naranja: #ff9a00;
+  --naranja-oscuro: #e68a00;
+  --pizarra: #5b6b86;
+  --noche: #1e2535;
+  --texto: #2b2f38;
+  --fondo: #ffffff;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+  line-height: 1.5;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--noche); outline-offset: 2px; }
+
+/* Barra de título de sección (franja azul pizarra) */
+.barra-titulo {
+  background: var(--pizarra);
+  color: #fff;
+  font-weight: 700;
+  padding: .25rem .75rem;
+  margin: 0;
+}
+.pagina { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem 2.5rem; }
+.hero {
+  position: relative;
+  min-height: 260px;
+  background-color: #3a4558;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(0,0,0,.55)); }
+.hero > * { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
