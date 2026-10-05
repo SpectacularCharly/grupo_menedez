@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CotizacionFormComponent } from './cotizacion-form.component';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
+  imports: [CotizacionFormComponent],
   template: `
     <section class="hero" style="background-image:url('assets/img/hero-inicio.jpg'); min-height: 300px">
       <div class="lema">
@@ -21,6 +23,17 @@ import { Component } from '@angular/core';
           </div>
         }
       </div>
+
+      <!-- Cotizaciones: al final de la página de Inicio -->
+      <div class="cotizar">
+        <button type="button" class="cta" (click)="abrirFormulario()">Solicitar cotización</button>
+      </div>
+
+      @if (mostrarForm) {
+        <div #destino>
+          <app-cotizacion-form (cerrar)="mostrarForm = false" />
+        </div>
+      }
     </section>
   `,
   styles: [`
@@ -31,6 +44,9 @@ import { Component } from '@angular/core';
     .logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
     .logo-card { background: #111; color: var(--c); min-height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; font-size: 1.4rem; letter-spacing: .04em; border: 1px solid #333; }
     .logo-card small { color: #ddd; font-size: .5rem; font-weight: 500; letter-spacing: .15em; }
+    .cotizar { display: flex; justify-content: center; margin-top: 2rem; }
+    .cta { background: var(--naranja); color: #fff; border: 0; border-radius: 0 18px 0 18px; padding: .6rem 1.8rem; font: inherit; font-weight: 700; cursor: pointer; }
+    .cta:hover { background: var(--naranja-oscuro); }
   `]
 })
 export class InicioComponent {
@@ -40,4 +56,12 @@ export class InicioComponent {
     { nombre: 'MECAHNO', sub: 'CONSTRUCCIONES S.A. DE C.V.', color: '#ffb300' },
     { nombre: 'RUIMEN', sub: 'CONSTRUCCIONES RUBÉN VERACRUZ S.A. DE C.V.', color: '#f5c400' }
   ];
+
+  mostrarForm = false;
+  @ViewChild('destino') destino?: ElementRef<HTMLElement>;
+
+  abrirFormulario() {
+    this.mostrarForm = true;
+    setTimeout(() => this.destino?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
 }

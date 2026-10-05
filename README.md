@@ -10,6 +10,6 @@ npm run build    # salida en dist/grupo-menendez-web
 
 ## Dónde editar
 - src/app/services/servicios.data.ts : constructoras y servicios
-- src/app/pages/cotizacion-form.component.ts : formulario (conectar el envío en enviar())
+- src/app/pages/cotizacion-form.component.ts : formulario de cotización (se muestra al final de Inicio; conectar el envío en enviar())
 - src/app/layout/ : encabezado y pie de página (teléfono, correo, redes)
 - public/assets/img/ : imágenes
